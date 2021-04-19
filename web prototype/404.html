@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WD Homepage</title>
+
+<script src="jquery.js"></script>
+
+<script>
+function clickBtn( btn )
+{
+
+  var btnname = "#page" + btn;
+  $("[id^='page']").hide();
+  $(btnname).show();
+}
+
+$(document).ready(function(){
+  clickBtn('0');
+});
+
+
+function increaseFont( )
+{
+  body = document.getElementById("body");
+    body.style.fontSize = "150%" ;
+    var elements = document.getElementsByClassName("block");
+    for(var i=0; i<elements.length; i++) {
+	  elements[i].style.fontSize="100%";
+}
+
+var elements2 = document.getElementsByClassName("btn");
+    for(var i=0; i<elements2.length; i++) {
+	  elements2[i].style.fontSize="100%";
+}
+}
+function decreaseFont( )
+{
+  body = document.getElementById("body");
+    body.style.fontSize = "100%" ;
+}
+
+</script>
+
+<style>
+
+.logo{
+cursor: pointer;
+}
+
+body { position: absolute; top: 5px; left: 80px;
+	height: 940px;
+	background-color: #FDFFDC; padding: 5px; }
+
+.btn {cursor: pointer;font-weight: bold;color: #3B3B3B; font-family: Calibri, sans-serif;font-size:16px; padding: 5px; margin: 5px; width: 180px; background-color: #E5E2F3;}
+
+.active, .btn:hover {
+  background-color: #636363;
+  color: white;}
+
+.access {cursor: pointer; color: #3B3B3B;font-family: Calibri, sans-serif; padding: 5px; margin: 2px; width: 150px; background-color: #E5E2F3; font-size:16px}
+
+.access:hover {
+    background-color: #555;
+  color: white;}
+
+h1 {padding-left: 10px; font-family: Calibri, sans-serif; color: #626262; }
+
+
+.content{max-width:1200px; padding-bottom:20px;}
+
+#change{
+  color: #626262;
+  border-radius: 3px;
+
+}
+</style>
+
+</head>
+
+<body id = "body" >
+
+
+<h1 onclick="clickBtn('0')" class="logo">WD Revision</h1>
+<div style = "position: absolute;top: 0px;right: 6px;">
+
+	<button id="increaseFont" type="button" class="access" onclick="increaseFont();"><b>Increase Font Size</b></button>
+	</div>
+	<div style = "position: absolute;top: 34px;right: 6px;">
+		<button id="decreaseFont" type="button" class="access" onclick="decreaseFont();"><b>Decrease Font Size</b></button>
+	</div>
+
+
+	<!-- Intro screen (scene0) -->
+	<div id="page0" class="content">
+		<h1 class="intro">404 error, page not found</h1>
+		<button onClick = "window.location.href='file:///H:/CSCU9N5/N5Project/homepage.html'" class="btn">Go back!</button>
+
+	</div>
+
+</div>
+
+</body>
+</html>

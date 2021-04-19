@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8">
+<title>WD Homepage</title>
+
+<script src="jquery.js"></script>
+
+<script>
+<!-- change page -->
+function clickBtn( btn )
+{
+  var btnname = "#page" + btn;
+  $("[id^='page']").hide();
+  $(btnname).show();
+}
+
+$(document).ready(function(){
+  clickBtn('0');
+});
+
+<!-- change font -->
+function increaseFont( )
+{
+  body = document.getElementById("body");
+  body.style.fontSize = "150%" ;
+  var elements = document.getElementsByClassName("block");
+  for(var i=0; i<elements.length; i++) {
+  	elements[i].style.fontSize="100%";
+}
+
+var elements2 = document.getElementsByClassName("btn");
+    for(var i=0; i<elements2.length; i++) {
+	  elements2[i].style.fontSize="100%";
+}
+}
+
+function decreaseFont( )
+{
+  body = document.getElementById("body");
+  body.style.fontSize = "100%" ;
+}
+
+<!-- slideshow -->
+var imgnum = 1;
+
+	function newSlide(imgnum)
+	{
+	  var imgname = "firsthtml" + imgnum + ".jpg";
+	  var newimg = document.getElementById("slide");
+	  newimg.setAttribute("src", imgname);
+	  var slidenum = "Slide " + imgnum + " of 2";
+	  var slide1Info = "This is likely what your first HTML script will look like...";
+	  var slide2Info = "Your first HTML will probably be something very simple such as this...";
+	  document.getElementById("slidenum").innerHTML = slidenum;
+		if(imgnum == 2)
+		{
+			document.getElementById("slideInfo").innerHTML = slide2Info;
+		}
+		else if (imgnum == 1)
+		  {
+		  document.getElementById("slideInfo").innerHTML = slide1Info;
+
+	  }
+	}
+
+	function nextSlide()
+	{
+	  imgnum = imgnum + 1;
+	  newSlide(imgnum);
+	  document.getElementById("btnSlidePrev").disabled = false;
+	  if (imgnum == 2) {
+		document.getElementById("btnSlideNxt").disabled = true;
+	  }
+	}
+
+	function prevSlide()
+	{
+	  imgnum = imgnum - 1;
+	  newSlide(imgnum);
+	  document.getElementById("btnSlideNxt").disabled = false;
+	  if (imgnum == 1) {
+		document.getElementById("btnSlidePrev").disabled = true;
+	  }
+	}
+<!-- CSS change colour -->
+	function changeColour()
+		{
+		var x = document.getElementById("change").value;
+		  document.getElementById("text").style.color = x;
+		}
+
+		$(document).ready(function() {
+		  $(window).keydown(function(event){
+			if(event.keyCode == 13) {
+			  event.preventDefault();
+			  return false;
+			}
+		  });
+	});
+
+</script>
+
+<style>
+
+.footer {
+   		position:absolute;
+      	bottom:0;
+   		width:100%;
+   		}
+.logo{
+		cursor: pointer;
+		transition: .8s;
+		font-size:40px
+		}
+
+.logo:hover {
+    	transform: rotateX(360deg);
+    	}
+
+body {
+		position: absolute;
+		top: 5px;
+		left: 80px;
+		height: 940px;
+		background-color: #FDFFDC; padding: 5px;
+		}
+
+.btn {
+		cursor: pointer;
+		font-weight: bold;
+		color: #3B3B3B;
+		font-family: Calibri, sans-serif;
+		font-size:16px;
+		padding: 5px;
+		margin: 5px;
+		width: 180px;
+		background-color:#E5E2F3;
+		}
+
+.active, .btn:hover {
+		background-color: #636363;
+  		color: white;
+  		}
+
+.block {
+		cursor: pointer;
+		font-weight: bold;
+		color: #3B3B3B;
+		font-family: Calibri, sans-serif;
+		font-size:16px;
+		padding: 5px;
+		margin: 5px;
+		width: 190px;
+		background-color:#E5E2F3;
+		}
+
+.block:hover {
+    	background-color: #555;
+  		color: white;
+  		}
+
+.access {
+		cursor: pointer;
+		color: #3B3B3B;
+		font-family: Calibri, sans-serif;
+		padding: 5px;
+		margin: 2px;
+		width: 150px;
+		background-color:#E5E2F3;
+		font-size:16px
+		}
+
+.access:hover {
+    	background-color: #555;
+  		color: white;
+  		}
+
+h1 {
+		padding-left: 10px;
+		font-family: Calibri, sans-serif;
+		color: #626262;
+		}
+
+h3 {
+		padding-left: 10px;
+		font-family: Calibri, sans-serif;
+		color: #626262;
+		}
+
+p{
+		padding-left: 10px;
+		font-family: Calibri, sans-serif;
+		color: #626262;
+		}
+
+a{
+		padding-left: 10px;
+		font-family: Calibri, sans-serif;
+		}
+
+.content{
+		max-width:1200px;
+		padding-bottom:20px;
+		}
+
+#change{
+		color: #626262;
+		border-radius: 3px;
+		}
+
+</style>
+
+</head>
+
+<body id = "body" >
+
+	<div style = "width:220px">
+	<h1 onclick="window.location.href='file:///H:/CSCU9N5/N5Project/homepage.html'" class="logo">WD Revision</h1>
+	</div>
+
+	<div style = "position: absolute; top: 0px; right: 6px;">
+		<button id="increaseFont" type="button" class="access" onclick="increaseFont();"><b>Increase Font Size</b></button>
+	</div>
+	<div style = "position: absolute; top: 34px; right: 6px;">
+		<button id="decreaseFont" type="button" class="access" onclick="decreaseFont();"><b>Decrease Font Size</b></button>
+	</div>
+
+	<div id = "myDIV">
+		<button id="btnHome" type="button" onclick="clickBtn('0')" class="btn active">Home</button>
+		<button id="btnOne" type="button" onclick="clickBtn('1')" class="btn">HTML</button>
+		<button id="btnTwo" type="button" onclick="clickBtn('2')" class="btn">CSS</button>
+		<button id="btnThree" type="button" onclick="clickBtn('3')" class="btn">JavaScript</button>
+		<button id="btnFour" type="button" onclick="clickBtn('4')" class="btn">8 Golden Rules</button>
+		<button id="btnFive" type="button" onclick="clickBtn('5')" class="btn">PACT</button>
+		<button id="btnSix" type="button" onclick="clickBtn('6')" class="btn">Accessibilty</button>
+		<button id="btnSeven" type="button" onclick="clickBtn('7')" class="btn">Nav Maps</button>
+
+	</div>
+	<script>
+
+	var header = document.getElementById("myDIV");
+	var btns = header.getElementsByClassName("btn");
+
+	for (var i = 0; i < btns.length; i++)
+	{
+	  btns[i].addEventListener("click", function() {
+	  var current = document.getElementsByClassName("active");
+	  if (current.length > 0)
+	  {
+		current[0].className = current[0].className.replace(" active", "");
+	  }
+	  this.className += " active";
+	  });
+
+	}
+	</script>
+
+	<!-- Welcome page -->
+	<div id="page0" class="content">
+		<h1 class="intro">Introduction to Web Development</h1>
+		<h3>What is Web development?</h3>
+		<p>"Web development broadly refers to the tasks associated with developing websites for hosting via intranet or internet. The web development process includes web design, web content development, client-side/server-side scripting and network security configuration, among other tasks." - <a href = "https://www.techopedia.com/definition/23889/web-development" target="_blank">techopedia.com</a></p>
+
+		<h3>Why is Web Design Important?</h3>
+		<p>"Most people would prefer to see something beautifully designed versus something plain and simple. Your website’s design is an important part of your online marketing presence. To build a better website for your business, you must understand the importance of web design." - <a href = "https://www.webfx.com/web-design/why-is-web-design-important.html" target="_blank">webfx.com</a></p>
+
+		<p style="text-align: left">
+			<img style = "cursor:pointer; border-style: solid; border-width: 2px;" onClick = "window.location.href='https://medium.com/level-up-web/developer-roadmaps-all-in-one-place-75c0402db0e0'" src="webImage.jpg" width=450 alt="Web developer image">
+		</p>
+
+		<h3>Filler Text</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	</div>
+
+
+	<!-- HMTL page1 -->
+	<div id="page1" class="content">
+	<h1>HTML</h1>
+	<h3>Page Structure</h3>
+	<div>
+
+		<p> - the &lt;HTML&gt; tags define the root of an HTML document</p>
+		<p> - the &lt;HEAD&gt; tags define important information about the document</p>
+		<p> - the &lt;BODY&gt; tags define the documents body which is where the webpage's content will go</p>
+		<p> - there are so many tags but these are the foundations of every page!</p>
+		<p> - all tags must have a matching closing tag</p>
+
+		<h3 id = "slideInfo" >This is likely what your first HTML script will look like...</h3>
+
+	</div>
+		<div style = "padding-bottom:20px">
+			<p style="text-align: left">
+				<img style = "cursor:pointer;" onClick = "window.location.href='http://www.mrshultz.com/lessons/htmllesson1/htmllesson1_print.html'" id="slide" src="firsthtml1.jpg" width=450 alt="first html code">
+			</p>
+			<p style="text-align: left; padding-top:5px; " id="slidenum">Slide 1 of 2</p>
+			<div style = "max-width:466px">
+
+				<button class="block" id="btnSlidePrev" type="button" onclick="prevSlide()" disabled > &lt;&lt; Previous</button>
+				<button style = "float:right" class="block" id="btnSlideNxt" type="button" onclick="nextSlide()" >Next &gt;&gt;</button>
+				<p>quiz to implemented here</p>
+				<p style="text-align: left">
+						<img src="rectangle.jpg" width=450 alt="placeholder of quiz to be implememented">
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- CSS page2 -->
+	<div id="page2" class="content">
+		<h1>CSS</h1>
+
+		<h3>What is CSS?</h3>
+		<p>"CSS stands for Cascading Style Sheets with an emphasis placed on “Style.” While HTML is used to structure a web document (defining things like headlines and paragraphs, and allowing you to embed images, video, and other media), CSS comes through and specifies your document’s style—page layouts, colors, and fonts are all determined with CSS.</p>
+
+		<h3>How Does It Relate To HTML?</h3>
+		<p>Think of HTML as the foundation (every house has one), and CSS as the aesthetic choices (there’s a big difference between a Victorian mansion and a modern home)."-<a href = "https://skillcrush.com/2012/04/03/css/" target="_blank" > skillcrush.com</a></p>
+
+		<p> Quick tutorial...</p>
+		<p><iframe style = "border-style: solid; border-width: 2px;" width = "450" height = "255" src = "https://www.youtube.com/embed/0afZj1G0BIE"></iframe></p>
+
+		<h3>Try it out...</h3>
+		<p id = "text">Type a colour in the text box, click 'Apply' and watch the CSS update and change the text to your selected colour!</p>
+
+		<div>
+
+			<p style = "float:left;">style = "color:</p>
+
+			<form style = "float:left; padding-top:16px;" ><input placeholder="Colour..."   id = "change" type = "text" value = ""></form>
+			<p style = "float:left;">;"</p>
+		</div>
+		<div style = "float:left;padding-top:4px;" >
+			<button  class="block" id="changebtn" type="button" onclick="changeColour()" >Apply</button>
+		</div>
+		<br>
+		<p style="padding-top:20px">
+			Quiz to be implemented here
+		</p>
+
+		<p>
+			<img src="rectangle.jpg" width=450 alt="placeholder of quiz to be implememented">
+		</p>
+</br>
+	</div>
+
+
+
+	<!--JS page3 -->
+	<div style = "position: relative;" id="page3" class="content">
+		<h1>JavaScript</h1>
+
+		<h3>What is JavaScript?</h3>
+		<p>"JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else. (Okay, not everything, but it is amazing what you can achieve with a few lines of JavaScript code.)" -<a href = "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank">developer.mozilla.org</a></p>
+
+		<p>JavaScript is used in conjuntion with HTML and CSS.</p>
+
+		<p style="text-align: left">
+			<img style = "cursor:pointer;" onClick = "window.location.href='https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript'"  src="cake.png" width=370 height = 350 alt="JavaScript is layered with HTML and CSS in a webpage">
+		</p>
+
+		<h3>JavaScript is how to add interactivity. Click the mouse on the canvas and draw a something!</h3>
+		<p>This is just one example of many things that can be done using JavaScript.</p>
+
+	<script>
+		// SETTING ALL VARIABLES
+
+			var clicked=false;
+			var canvas = document.createElement('canvas');
+			var area = document.getElementById("page3");
+			var ctx = canvas.getContext('2d');
+
+			canvas.id = "canvas";
+			canvas.width = 300;
+			canvas.height = 300;
+
+			canvas.style.positioning = "static";
+			canvas.style.border = "1px solid";
+			canvas.style.cursor = "crosshair";
+			ctx.fillStyle = 'white';
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			area.appendChild(canvas);
+
+			canvas.addEventListener('mousedown', function() {mousedown(canvas, event);});
+			canvas.addEventListener('mousemove',function() {mousemove(canvas, event);});
+			canvas.addEventListener('mouseup',mouseup);
+
+			function clearCanvas() {
+						ctx.clearRect(0, 0, canvas.width, canvas.height);
+						ctx.fillStyle = 'white';
+						ctx.fillRect(0, 0, canvas.width, canvas.height);
+			}
+
+			function getMousePosition(canvas, event) {
+				var rect = canvas.getBoundingClientRect();
+				return {
+					x: event.clientX - rect.left,
+					y: event.clientY - rect.top
+				};
+			}
+
+			function mousedown(canvas, event) {
+				var mousePos = getMousePosition(canvas, event);
+				clicked=true;
+				var currentPosition = getMousePosition(canvas, event);
+				ctx.moveTo(currentPosition.x, currentPosition.y)
+				ctx.beginPath();
+				ctx.strokeStyle = '#00f';
+
+			}
+			function mouseup() {
+				clicked=false;
+			}
+
+			function mousemove(canvas, event) {
+
+				if(clicked){
+					var currentPosition = getMousePosition(canvas, event);
+					ctx.lineTo(currentPosition.x, currentPosition.y);
+					ctx.stroke();
+				}
+			}
+
+	</script>
+
+		<p style = "padding-left:0; padding-bottom:20px;">
+			<button style = "position: absolute;" class="block" type="button" onclick="clearCanvas();">Clear</button>
+		</p>
+
+		<p style="padding-top:20px">
+			Quiz to be implemented here
+		</p>
+
+		<p>
+			<img src="rectangle.jpg" width=450 alt="placeholder of quiz to be implememented">
+		</p>
+
+	</div>
+
+
+
+	<!-- 8GR page4 -->
+	<div id="page4" class="content">
+		<h1>8 Golden Rules</h1>
+		<p>This page will contain information about Schneiderman's 8 golden rules.</p>
+	</div>
+
+
+
+	<!-- PACT page5 -->
+	<div id="page5" class="content">
+		<h1>PACT</h1>
+		<p>This page will contain information about PACT.</p>
+	</div>
+
+
+
+	<!-- Access page6 -->
+	<div id="page6" class="content">
+		<h1>Accessibility</h1>
+		<p>This page will contain information about Accessibility.</p>
+	</div>
+
+
+
+	<!-- Nav page7 -->
+	<div id="page7" class="content">
+		<h1>Nav Maps</h1>
+		<p>This page will contain information about Nav Maps.</p>
+	</div>
+
+
+</body>
+
+
+</html>
